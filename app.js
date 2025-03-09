@@ -19,7 +19,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:3000",
+   origin: [
+      "https://ethraa-front.vercel.app", // Production frontend URL
+      "http://localhost:3000",            // Allow local dev environment
+    ],
     credentials: true, // Allow cookies to be sent an d received
   })
 );
