@@ -63,12 +63,13 @@ const loginUser = async (req, res) => {
     );
 
     // Set HTTP-Only cookie
-    res.cookie("token", token, {
-      httpOnly: true, // Secure cookie (prevents access from JavaScript)
-      secure: process.env.NODE_ENV === "production", // Set secure flag in production
-      sameSite: "strict", // Prevent CSRF attacks
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-    });
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,  // Important for production (must be HTTPS)
+  sameSite: "None",  // Allow cookies from different domains
+  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+});
+
 
     // Respond with token
     res.status(200).json({
