@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://ethrea-front.vercel.app",  // Allow all origins
+    origin: "https://contract-ithra.vercel.app",  // Allow all origins
     credentials: true, // Allow cookies and authorization headers
   })
 );
